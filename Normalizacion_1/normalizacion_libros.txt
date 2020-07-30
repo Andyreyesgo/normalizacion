@@ -1,0 +1,33 @@
+posts=# CREATE DATABASE normalizacion;
+CREATE DATABASE
+
+
+CREATE TABLE autor (
+id_autor SERIAL PRIMARY KEY,
+nombre_autor VARCHAR (20)
+);
+
+
+CREATE TABLE editorial(  
+id_editorial SERIAL PRIMARY KEY,                                                nombre_editorial VARCHAR (20)                                                   );
+
+
+CREATE TABLE libro(
+id_libro SERIAL PRIMARY KEY,
+titulo_libro VARCHAR (30),
+editorial_id INT REFERENCES editorial(id_editorial),
+autor_id INT REFERENCES autor(id_autor)
+);
+
+
+
+CREATE TABLE prestamo(
+id_prestamo SERIAL PRIMARY KEY,
+libro_id INT REFERENCES libro(id_libro),
+fecha_devolucion DATE 
+);
+CREATE TABLE
+
+
+CREATE TABLElector(                                           
+id_lector SERIAL PRIMARY KEY ,                                                  nombre_lector VARCHAR (40),                                                     prestamo_id INT REFERENCES prestamo(id_prestamo)                                );
